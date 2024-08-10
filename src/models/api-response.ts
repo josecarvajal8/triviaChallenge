@@ -1,4 +1,4 @@
-type CorrectAnswer = 'True' | 'False';
+export type CorrectAnswer = 'True' | 'False';
 
 export interface IQuestion {
   difficulty: string;

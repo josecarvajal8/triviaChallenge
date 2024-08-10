@@ -25,7 +25,7 @@ export const Challenge: FC = () => {
         <Text style={styles.title}>
           {'Try your best to answer the questions, good luck!'}
         </Text>
-        {questions.length ? (
+        {questions?.length ? (
           <Stepper questions={questions} />
         ) : (
           <ActivityIndicator color={colors.accent_yellow} />
