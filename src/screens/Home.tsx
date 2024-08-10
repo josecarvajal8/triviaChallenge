@@ -3,8 +3,11 @@ import {BaseLayout} from '../components/layout/BaseLayout';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {fonts, getFontSizes} from '../constants/typo';
 import {colors} from '../constants/styling';
+import {useNavigation} from '@react-navigation/native';
 
 export const Home: FC = () => {
+  const {navigate} = useNavigation();
+  const onStart = () => navigate('Challenge');
   return (
     <BaseLayout>
       <View style={styles.container}>
@@ -12,7 +15,7 @@ export const Home: FC = () => {
           {'Hello,\n'}
           <Text style={styles.span}>{'Welcome to TriviaApp'}</Text>
         </Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={onStart}>
           <Text style={styles.buttonTitle}>{'Start'}</Text>
         </Pressable>
       </View>
