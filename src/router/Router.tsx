@@ -10,8 +10,20 @@ export const Router: FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Challenge" component={Challenge} />
+        <Stack.Screen
+          options={{
+            headerBackVisible: false,
+          }}
+          name="Home"
+          component={Home}
+        />
+        <Stack.Screen
+          name="Challenge"
+          component={Challenge}
+          options={{
+            headerBackVisible: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

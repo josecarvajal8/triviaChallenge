@@ -1,0 +1,3 @@
+export enum CONTEXT_TYPES {
+  UPDATE_SCORE = 'UPDATE_SCORE',
+}
