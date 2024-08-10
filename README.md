@@ -1,79 +1,47 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## TriviaApp
 
-# Getting Started
+This App uses a simple API that randomly returns some questions, those are displaying on the app and after completing 4 questions it shows your results.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The app is a take home challenge.
 
-## Step 1: Start the Metro Server
+### Pending 
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- Using reanimated for wiggle or any animation: I did not distributed correctly my time, i was not able to complete the animation using reanimated. I used Animated from RN to do an small animation on a few buttons.
+- Counter: I would add a counter so the user knows how many questions there are and which question is currently being displayed. Additionally, I would disable the buttons while the animation is running.
+- 3rd screen: I wanted to have a 3rd for the results with the option to do the challenge again or return to home.
+- Score save: I would add the async storage to persist previous scores.
+- Test and bonus points: I would love to have more time to integrate testing library and do a few unit test in particular the behavior of the Stepper component.
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
+### Results
 
-# OR using Yarn
-yarn start
-```
+![Android preview](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHFmbm00end4MnB6bjY3NDhobmhjbmhoNHdtOTM1YXZrcmVtbXF5cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6oXeTon4FJr6nlCloY/giphy.gif)  ![iOS preview](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHQyeGhiaDFweW1na2k5OXE5ZHEzdnlwMzRqZzdxc2xvZmQybnZ1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vTEQx0S9SLABYbSgW7/giphy.gif)
 
-## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Before start
 
-### For Android
+This project was built using React Native, following the usual setup. To dive in, just make sure your environment is ready. You can find all the details in the React Native [documentation](https://reactnative.dev/docs/environment-setup).
 
-```bash
-# using npm
-npm run android
+If you're using Android, it's a good idea to take your time and follow the documentation's instructions to install all the required SDK.
 
-# OR using Yarn
-yarn android
-```
+#### Step 1: Clone the repo.
 
-### For iOS
+`git clone https://github.com/josecarvajal8/cameraApp.git`
 
-```bash
-# using npm
-npm run ios
+#### Step 2: Dependencies and pods
 
-# OR using Yarn
-yarn ios
-```
+Install the dependencies by running:
+`yarn`
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Install pods by running:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+`cd ios/ && pod install && cd ..`
 
-## Step 3: Modifying your App
+#### Step 3: Run your app
 
-Now that you have successfully run the app, let's modify it.
+Start the server by running:
+`yarn start`
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Run your app by running:
+`yarn ios` or `yarn android`
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
