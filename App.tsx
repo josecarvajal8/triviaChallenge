@@ -4,7 +4,9 @@ import {SafeAreaView, Text} from 'react-native';
 function App(): React.JSX.Element {
   return (
     <SafeAreaView>
-      <Text>{'Hello'}</Text>
+      <Text style={{fontFamily: 'Montserrat-Regular'}}>{'Hello'}</Text>
+      <Text style={{fontFamily: 'Montserrat-Bold'}}>{'Hello'}</Text>
+      <Text style={{fontFamily: 'Montserrat-Light'}}>{'Hello'}</Text>
     </SafeAreaView>
   );
 }
