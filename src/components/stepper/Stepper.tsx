@@ -1,5 +1,5 @@
-import React, {FC, useState} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import React, {FC, useRef, useState} from 'react';
+import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
 import {CorrectAnswer, IQuestion} from '../../models/api-response';
 import {fonts, getFontSizes} from '../../constants/typo';
 import {colors} from '../../constants/styling';
@@ -12,19 +12,51 @@ import {sanitizeString} from '../../utils/utilities';
 interface IStepperProps {
   questions: IQuestion[];
 }
-const ButtonResponse: FC<{
+
+const ScalingButton: FC<{
   title: string;
   background: string;
   action: () => void;
 }> = ({action, background, title}) => {
+  const scale = useRef(new Animated.Value(1)).current;
+
+  const handlePressIn = () => {
+    Animated.spring(scale, {
+      toValue: 1.2,
+      friction: 2,
+      tension: 40,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.spring(scale, {
+      toValue: 1,
+      friction: 2,
+      tension: 40,
+      useNativeDriver: true,
+    }).start(() => {
+      action();
+    });
+  };
+
+  const animatedStyle = {
+    transform: [{scale}],
+  };
+
   return (
-    <Pressable
-      onPress={action}
-      style={{...styles.button, backgroundColor: background}}>
-      <Text style={styles.buttonTitle}>{title}</Text>
+    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+      <Animated.View
+        style={[
+          {...styles.button, backgroundColor: background},
+          animatedStyle,
+        ]}>
+        <Text style={styles.buttonTitle}>{title}</Text>
+      </Animated.View>
     </Pressable>
   );
 };
+
 export const Stepper: FC<IStepperProps> = ({questions}) => {
   const {replace} =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
@@ -80,7 +112,7 @@ export const Stepper: FC<IStepperProps> = ({questions}) => {
               ...styles.resultText,
               color: colors.secondary,
             }}>{`Incorrect: ${answers.incorrect}`}</Text>
-          <ButtonResponse
+          <ScalingButton
             title="Back home"
             background={colors.primary}
             action={onBackHome}
@@ -90,12 +122,12 @@ export const Stepper: FC<IStepperProps> = ({questions}) => {
         <>
           <Text style={styles.title}>{sanitizeString(question)}</Text>
           <View style={styles.btnsContainer}>
-            <ButtonResponse
+            <ScalingButton
               title="True"
               background={colors.primary}
               action={() => onValidateQuestion('True')}
             />
-            <ButtonResponse
+            <ScalingButton
               title="False"
               background={colors.secondary}
               action={() => onValidateQuestion('True')}
