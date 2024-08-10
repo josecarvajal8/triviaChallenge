@@ -1,8 +1,9 @@
 export const colors = {
-  primary: '#00FF00',
-  primary_variant: '#3697E5',
-  secondary: '#9500FF',
-  secondary_variant: '#00B1AE',
+  primary: '#3697E5',
+  secondary: '#FF4500',
+  accent_yellow: '#FFD700',
+  accent_gray: '#D3D3D3',
+  white_smoke: '#F5F5F5',
   white: '#FFFF',
   black: '#000',
 };
